@@ -84,7 +84,7 @@ fun testNull(view: View) {
   mediaItem?.title
 
   val mediaItemNotNull: MediaItem = mediaItem ?:
-      MediaItem("Title Not Null", "ey", MediaItem.TYPE.PHOTO)
+      MediaItem(0, "Title Not Null", "ey", MediaItem.TYPE.PHOTO)
 
   // Very used
   val title: String = mediaItem?.title ?: "Alternative value"

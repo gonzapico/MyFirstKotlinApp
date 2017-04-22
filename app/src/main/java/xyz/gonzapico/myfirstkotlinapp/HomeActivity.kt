@@ -5,11 +5,17 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_home.*
+import org.jetbrains.anko.startActivity
 
 class HomeActivity : AppCompatActivity() {
-  var adapter = MediaAdapter() {
+  var adapter = MediaAdapter {
     // This is valid just if there is one input parameter
     showToast(it.title)
+    // to
+    // Pair (DetailActivity.EXTRA it.id)
+    // infix -> extension function of an element
+    // not more usual (take care of it)
+    startActivity<DetailActivity>(DetailActivity.EXTRA_ITEM_ID to it.id)
   }
 
   override fun onCreate(savedInstanceState: Bundle?) {

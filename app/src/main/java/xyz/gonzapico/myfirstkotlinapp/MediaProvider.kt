@@ -18,8 +18,9 @@ object MediaProvider {
     }
   }
 
-  private fun fetchMedia(): List<MediaItem> = (0..10).map {
+  fun fetchMedia(): List<MediaItem> = (0..10).map {
     MediaItem(
+        it,
         "Title $it",
         "http://lorempixel.com/200/200/sports/$it/",
         if (it % 3 == 0) MediaItem.TYPE.VIDEO
