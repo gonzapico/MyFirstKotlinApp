@@ -32,7 +32,7 @@ class MediaAdapter(
 
     fun bind(item: MediaItem) {
       title.text = item.title
-      Picasso.with(thumb.context).load(item.url).into(thumb)
+      Picasso.with(thumb.context).load(item.thumbUrl).into(thumb)
     }
   }
 }
