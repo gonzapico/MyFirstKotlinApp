@@ -14,5 +14,9 @@ class HomeActivity : AppCompatActivity() {
     val tvWelcomeMessage = findViewById(R.id.tvWelcomeMessage) as TextView
 
     tvWelcomeMessage.setText(resources.getString(R.string.welcomeMessage))
+
+    // Casting example
+    val myInt = 20
+    val myLong: Long = myInt.toLong()
   }
 }
