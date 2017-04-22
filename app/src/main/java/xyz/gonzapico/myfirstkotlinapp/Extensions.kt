@@ -10,10 +10,12 @@ import android.widget.Toast
 /**
  * Created by gfernandez on 22/04/17.
  */
-fun Context.showToast(message: String) = // this = Context
-    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+fun Context.showToast(message: String, length: Int = Toast.LENGTH_LONG) = // this = Context
+    Toast.makeText(this, message, length).show()
 
-fun RecyclerView.ViewHolder.showToast(message: String) = this.itemView.context.showToast(message)
+fun RecyclerView.ViewHolder.showToast(message: String,
+    length: Int = Toast.LENGTH_SHORT) = this.itemView.context.showToast(message, length)
 
-fun ViewGroup.inflate(@LayoutRes layoutToInflate: Int) = LayoutInflater.from(context).inflate(
-    layoutToInflate, this, false)
+fun ViewGroup.inflate(@LayoutRes layoutToInflate: Int,
+    attachToRoot: Boolean = false) = LayoutInflater.from(context).inflate(
+    layoutToInflate, this, attachToRoot)
