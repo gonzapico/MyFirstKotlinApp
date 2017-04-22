@@ -18,4 +18,11 @@ fun testWhen(view: View) {
   if (view is TextView) {
     // view is a TextView and without casting we can use their methods
   }
+
+  val int = 10
+  when (int) {
+    in 5..20 -> print("between 5 and 20")
+    0, 3, 50 -> print("is 0.. or 30.. or 50")
+    in 70..120 -> print("much bigger")
+  }
 }
