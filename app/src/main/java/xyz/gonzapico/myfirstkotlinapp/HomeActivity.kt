@@ -15,7 +15,7 @@ class HomeActivity : AppCompatActivity() {
     setContentView(R.layout.activity_home)
 
     // id = recycler
-    recycler.adapter = MediaAdapter(fetchMedia(), { mediaItem -> showToast(mediaItem.title) })
+    recycler.adapter = MediaAdapter(fetchMedia()) { mediaItem -> showToast(mediaItem.title) }
   }
 
 }
