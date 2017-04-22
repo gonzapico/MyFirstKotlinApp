@@ -2,6 +2,7 @@ package xyz.gonzapico.myfirstkotlinapp
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -19,6 +20,16 @@ class HomeActivity : AppCompatActivity() {
       // This is valid just if there is one input parameter
       showToast(it.title)
     }
+
+    val textView = TextView(this).applyTwo {
+      textSize = 20f
+    }
   }
 
+}
+
+
+fun <T : Any> T.applyTwo(f: T.() -> Unit): T {
+  this.f()
+  return this
 }
