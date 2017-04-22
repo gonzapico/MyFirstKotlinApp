@@ -3,11 +3,23 @@ package xyz.gonzapico.myfirstkotlinapp
 /**
  * Created by gfernandez on 22/04/17.
  */
-abstract class Person(val name: String, val age: Int)
-// Open by default
-class Developer(name: String) : Person(name, 24)
+class Person(name: String, age: Int){
+  // To change functionality in getter and/or setter
 
-// Without constructor
-class MyDeveloper(val name: String = "", val age: Int = 20) {
+  var name = name
+    get() = "Name -> $field"
+    set(value){
+      if (value.isNotEmpty()){
+        field = value
+      }
+    }
+  var age = age
 
+
+}
+
+fun testClass(){
+  val person = Person("Anto", 33)
+  val name = person.name
+  person.name = "Miguel"
 }
