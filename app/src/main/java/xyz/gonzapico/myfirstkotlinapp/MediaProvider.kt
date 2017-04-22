@@ -1,11 +1,22 @@
 package xyz.gonzapico.myfirstkotlinapp
 
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
+
 /**
  * Created by gfernandez on 22/04/17.
  */
 object MediaProvider {
 
-  val data by lazy { fetchMedia() }
+  fun dataAsync(f: (List<MediaItem>) -> Unit) {
+    doAsync {
+      val data = fetchMedia()
+      Thread.sleep(2000)
+      uiThread {
+        f(data)
+      }
+    }
+  }
 
   private fun fetchMedia(): List<MediaItem> = (0..10).map {
     MediaItem(
