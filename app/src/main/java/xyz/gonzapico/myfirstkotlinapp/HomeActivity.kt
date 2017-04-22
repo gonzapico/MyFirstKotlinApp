@@ -22,6 +22,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     val textView = TextView(this).applyTwo {
+      // this = TextView
       textSize = 20f
     }
   }
@@ -29,7 +30,9 @@ class HomeActivity : AppCompatActivity() {
 }
 
 
+/*** A function that passes by parameter that is an extension function ***/
 fun <T : Any> T.applyTwo(f: T.() -> Unit): T {
   this.f()
+  // return itself becuse that's the way apply works
   return this
 }
