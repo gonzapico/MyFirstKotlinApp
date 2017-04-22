@@ -16,7 +16,7 @@ class HomeActivity : AppCompatActivity() {
 
     tvWelcomeMessage.setText(resources.getString(R.string.welcomeMessage))
 
-    showToastMessage(tvWelcomeMessage.text.toString())
+    showToastMessage("Hello  ${tvWelcomeMessage.text}")
   }
 
   // Normal use
