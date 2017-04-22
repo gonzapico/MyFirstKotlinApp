@@ -3,6 +3,7 @@ package xyz.gonzapico.myfirstkotlinapp
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
+import android.widget.Toast
 
 class HomeActivity : AppCompatActivity() {
 
@@ -15,12 +16,10 @@ class HomeActivity : AppCompatActivity() {
 
     tvWelcomeMessage.setText(resources.getString(R.string.welcomeMessage))
 
-    // Casting example
-    val myInt = 20
-    val myLong: Long = myInt.toLong()
+    showToastMessage(tvWelcomeMessage.text.toString())
+  }
 
-    // Inference
-    val myVal = 20.0
-    val long = 20L
+  fun showToastMessage(message : String){
+    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
   }
 }
