@@ -26,11 +26,14 @@ class MediaAdapter(
 
   class MediaViewHolder(mediaView: View) : RecyclerView.ViewHolder(mediaView) {
 
-    fun bind(item: MediaItem) = with(itemView) {
-      mediaTitle.text = item.title
-      media_thumb.loadUrl(item.thumbUrl)
-      media_video_indicator.visible = item.type == MediaItem.TYPE.VIDEO
-      setOnClickListener { showToast(item.title, Toast.LENGTH_LONG) }
+    fun bind(item: MediaItem) {
+      val result = with(itemView) {
+        mediaTitle.text = item.title
+        media_thumb.loadUrl(item.thumbUrl)
+        media_video_indicator.visible = item.type == MediaItem.TYPE.VIDEO
+        setOnClickListener { showToast(item.title, Toast.LENGTH_LONG) }
+        item.title // it should be the return
+      }
     }
   }
 }
