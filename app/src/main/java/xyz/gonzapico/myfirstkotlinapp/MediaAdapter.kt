@@ -19,7 +19,10 @@ class MediaAdapter(
 
   override fun onBindViewHolder(holder: MediaViewHolder, position: Int) {
     holder.bind(mediaItemList[position])
-    holder.itemView.setOnClickListener { listener(mediaItemList[position]) }
+    holder.itemView.setOnClickListener {
+      listener(mediaItemList[position])
+//      listener.invoke(mediaItemList[position])
+    }
   }
 
   override fun getItemCount() =
