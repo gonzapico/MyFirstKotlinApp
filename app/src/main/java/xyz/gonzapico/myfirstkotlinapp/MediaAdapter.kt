@@ -1,7 +1,6 @@
 package xyz.gonzapico.myfirstkotlinapp
 
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.view_media_item.view.*
@@ -11,11 +10,13 @@ import kotlinx.android.synthetic.main.view_media_item.view.media_title as mediaT
 /**
  * Created by gfernandez on 22/04/17.
  */
-class MediaAdapter(
-    val listener: (MediaItem) -> Unit) : RecyclerView.Adapter<MediaAdapter.MediaViewHolder>() {
+typealias Listener = (MediaItem) -> Unit
 
-  var mediaItemList: List<MediaItem> by Delegates.observable(emptyList()){
-    _, _, _ -> notifyDataSetChanged()
+class MediaAdapter(
+    val listener: Listener) : RecyclerView.Adapter<MediaAdapter.MediaViewHolder>() {
+
+  var mediaItemList: List<MediaItem> by Delegates.observable(emptyList()) { _, _, _ ->
+    notifyDataSetChanged()
   }
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MediaViewHolder {
