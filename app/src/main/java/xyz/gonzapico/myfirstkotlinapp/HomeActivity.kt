@@ -3,9 +3,11 @@ package xyz.gonzapico.myfirstkotlinapp
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import kotlin.properties.Delegates
 
 class HomeActivity : AppCompatActivity() {
 
@@ -14,6 +16,12 @@ class HomeActivity : AppCompatActivity() {
   }
 
   val recycler by lazy { find<RecyclerView>(R.id.recycler) }
+
+  var observedNumber by Delegates.observable(0) {
+    // What we are going to do every time observedNumber is changed
+    p, old, new ->
+    Log.d("", "old -> $old & new -> $new")
+  }
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -28,6 +36,8 @@ class HomeActivity : AppCompatActivity() {
 
     val viewGroup: ViewGroup = FrameLayout(this)
     val list: List<View> = viewGroup.filterViews(View::visible)
+
+    observedNumber = 20
   }
 
 }
