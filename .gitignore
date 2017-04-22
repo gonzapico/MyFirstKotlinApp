@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/linux,android,intellij,crashlytics,espresso,git,gradle,java
 
 ### Linux ###
@@ -15,6 +14,8 @@
 
 
 ### Android ###
+=======
+>>>>>>> 66e8d58eb48c772957225683fd4b622bfe77a686
 # Built application files
 *.apk
 *.ap_
@@ -55,6 +56,7 @@ captures/
 
 # Keystore files
 *.jks
+<<<<<<< HEAD
 
 ### Android Patch ###
 gen-external-apklibs
@@ -165,3 +167,5 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 .idea/instapk.xml
 instapk.log*
+=======
+>>>>>>> 66e8d58eb48c772957225683fd4b622bfe77a686
