@@ -36,17 +36,20 @@ class HomeActivity : AppCompatActivity() {
 
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
     progress.visible = true
-    MediaProvider.dataAsync { items ->
-      adapter.mediaItemList = when (item.itemId) {
-        R.id.filter_photos -> {
-          items.filter { it.type == MediaItem.TYPE.PHOTO }
-        }
-        R.id.filter_videos -> {
-          items.filter { it.type == MediaItem.TYPE.VIDEO }
-        }
-        else -> items
+    val filter = when (item.itemId) {
+      R.id.filter_photos -> {
+        Filter.ByType(MediaItem.TYPE.PHOTO)
       }
-      progress.visible = false
+      R.id.filter_videos -> {
+        Filter.ByType(MediaItem.TYPE.VIDEO)
+      }
+      else -> Filter.None
+    }
+    MediaProvider.dataAsync { items ->
+      adapter.mediaItemList = when (filter) {
+        is Filter.ByType -> items.filter { it.type == filter.type }
+        is Filter.None -> items
+      }
     }
 
     return true
