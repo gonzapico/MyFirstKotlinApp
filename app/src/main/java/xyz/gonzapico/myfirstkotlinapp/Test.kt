@@ -8,6 +8,15 @@ import android.widget.TextView
  * Created by gfernandez on 22/04/17.
  */
 fun testWhen(view: View) {
+  val int = 20
+
+  when {
+  // like if when of Java
+    view is TextView -> print(
+        view.text) // automatic casting and then we know it's a TextView and we have access to their methods
+    System.currentTimeMillis() > 100000 -> ""
+    int in 0..30 -> print("ojooo")
+  }
   when (view) {
   // like instanceof
     is TextView -> print(
@@ -19,7 +28,6 @@ fun testWhen(view: View) {
     // view is a TextView and without casting we can use their methods
   }
 
-  val int = 10
   // Any = Object in Java
   val result: Any = when (int) {
     in 1..2 -> "1"
