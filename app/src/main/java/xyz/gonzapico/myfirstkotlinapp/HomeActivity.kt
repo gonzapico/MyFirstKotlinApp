@@ -2,6 +2,9 @@ package xyz.gonzapico.myfirstkotlinapp
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 
@@ -13,10 +16,20 @@ class HomeActivity : AppCompatActivity() {
     setContentView(R.layout.activity_home)
 
     val tvWelcomeMessage = findViewById(R.id.tvWelcomeMessage) as TextView
+    val btnShowMessage = findViewById(R.id.btnShowMessage) as Button
+    val etMessage = findViewById(R.id.etMessage) as EditText
 
-    tvWelcomeMessage.setText(resources.getString(R.string.welcomeMessage))
+    btnShowMessage.setOnClickListener(object  : View.OnClickListener{
+      override fun onClick(v: View?) {
+        showToastMessage("Message :  ${etMessage.text}")
+      }
 
-    showToastMessage("Hello  ${tvWelcomeMessage.text}")
+    })
+//    btnShowMessage.setOnClickListener { showToastMessage("Hello ${etMessage.text}") }
+
+//    tvWelcomeMessage.setText(resources.getString(R.string.welcomeMessage))
+
+//    showToastMessage("Hello  ${tvWelcomeMessage.text}")
   }
 
   // Normal use
