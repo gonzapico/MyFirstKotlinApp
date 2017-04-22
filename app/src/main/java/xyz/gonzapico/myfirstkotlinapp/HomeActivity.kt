@@ -13,6 +13,7 @@ class HomeActivity : AppCompatActivity() {
 
     val recyclerView = findViewById(R.id.recycler) as RecyclerView
     recyclerView.adapter = MediaAdapter(fetchMedia())
+    startActivity<HomeActivity>()
   }
 
 }

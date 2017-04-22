@@ -1,6 +1,8 @@
 package xyz.gonzapico.myfirstkotlinapp
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -23,3 +25,10 @@ fun ViewGroup.inflate(@LayoutRes layoutToInflate: Int,
     layoutToInflate, this, attachToRoot)
 
 fun ImageView.loadUrl(urlToLoad: String) = Picasso.with(context).load(urlToLoad).into(this)
+
+/***
+ * To what activity we want to navigate
+ */
+inline fun <reified T : Activity> Context.startActivity() {
+  startActivity(Intent(this, T::class.java))
+}
