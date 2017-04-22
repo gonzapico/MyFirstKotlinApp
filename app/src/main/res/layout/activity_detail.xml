@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-  <android.support.v7.widget.RecyclerView
-      android:id="@+id/recycler"
+  <ImageView
+      android:id="@+id/detail_thumb"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:clipToPadding="false"
-      android:padding="2dp"
-      app:layoutManager="GridLayoutManager"
-      app:spanCount="2"
-      tools:listitem="@layout/view_media_item"/>
+      android:layout_gravity="center"
+      tools:src="@mipmap/ic_launcher"/>
 
-  <ProgressBar
-      android:id="@+id/progress"
+  <ImageView
+      android:id="@+id/detail_video_indicator"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
+      android:src="@drawable/ic_play_circle_outline_black"
       android:visibility="gone"
       tools:visibility="visible"/>
 
