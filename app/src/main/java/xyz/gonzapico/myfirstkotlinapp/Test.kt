@@ -53,3 +53,26 @@ fun doWhatEver() {
 fun testIf(view: View) {
   val int = if (view is TextView) 0 else 1
 }
+
+fun testFor(view: View) {
+  // 1st way
+  val list = listOf(1, 2, 3)
+  for (item in list) {
+    // iteration
+  }
+
+  // 2nd way
+  // 1 to 10
+  for (i in 1..10) {
+
+  }
+  // 1 to 9
+  for (i in 1 until 9) {
+
+  }
+
+  /***
+   * It doesn't use it
+   */
+
+}
