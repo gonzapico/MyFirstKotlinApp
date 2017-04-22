@@ -18,5 +18,9 @@ class HomeActivity : AppCompatActivity() {
     // Casting example
     val myInt = 20
     val myLong: Long = myInt.toLong()
+
+    // Inference
+    val myVal = 20.0
+    val long = 20L
   }
 }
