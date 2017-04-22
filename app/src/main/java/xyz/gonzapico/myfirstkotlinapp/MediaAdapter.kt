@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.view_media_item.view.*
+import kotlinx.android.synthetic.main.view_media_item.view.media_title as mediaTitle
 
 /**
  * Created by gfernandez on 22/04/17.
@@ -26,7 +27,7 @@ class MediaAdapter(
   class MediaViewHolder(mediaView: View) : RecyclerView.ViewHolder(mediaView) {
 
     fun bind(item: MediaItem) {
-      itemView.media_title.text = item.title
+      itemView.mediaTitle.text = item.title
       itemView.media_thumb.loadUrl(item.thumbUrl)
       itemView.media_video_indicator.visible = item.type == MediaItem.TYPE.VIDEO
 //      indicator.visibility = if (item.type == MediaItem.TYPE.VIDEO) View.VISIBLE else View.GONE
