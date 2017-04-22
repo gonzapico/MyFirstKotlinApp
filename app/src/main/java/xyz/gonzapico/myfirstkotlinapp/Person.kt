@@ -7,8 +7,17 @@ open class Person(val name:String, val age:Int)
 
 class Developer(name: String) : Person(name, 24)
 
-// They don't need to be inside a class
-fun testFun(){
-  val person = Person("Name", 20)
-  person.age
+// Without constructor
+class MyDeveloper{
+  val name : String
+  val age : Int
+  constructor(name: String){
+    this.name = name
+    this.age = 20
+  }
+  constructor(age: Int){
+    this.name = "U"
+    this.age = age
+  }
+
 }
