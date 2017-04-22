@@ -21,10 +21,12 @@ class HomeActivity : AppCompatActivity() {
       showToast(it.title)
     }
 
-    val textView = TextView(this).applyTwo {
+    val textView = TextView(this).withTwo {
       // this = TextView
       textSize = 20f
     }
+
+    val textViewWith = withTwo(TextView(this))
   }
 
 }
@@ -33,6 +35,11 @@ class HomeActivity : AppCompatActivity() {
 /*** A function that passes by parameter that is an extension function ***/
 fun <T : Any> T.applyTwo(f: T.() -> Unit): T {
   this.f()
-  // return itself becuse that's the way apply works
+  // return itself because that's the way apply works
   return this
+}
+
+fun <T : Any> T.withTwo(obj: T, f: T.() -> Unit): T {
+  obj.f()
+  return obj
 }
