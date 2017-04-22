@@ -15,7 +15,10 @@ class HomeActivity : AppCompatActivity() {
     setContentView(R.layout.activity_home)
 
     // id = recycler
-    recycler.adapter = MediaAdapter(fetchMedia()) { showToast(it.title) }
+    recycler.adapter = MediaAdapter(fetchMedia()) {
+      // This is valid just if there is one input parameter
+      showToast(it.title)
+    }
   }
 
 }
