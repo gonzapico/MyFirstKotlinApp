@@ -15,4 +15,4 @@ open class Person(name:String, age:Int){
   }
 }
 
-class Developer : Person()
+class Developer(name: String) : Person(name, 24)
