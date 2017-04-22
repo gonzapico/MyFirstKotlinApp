@@ -21,8 +21,15 @@ fun testWhen(view: View) {
 
   val int = 10
   when (int) {
+    in 1..2 -> {
+      doWhatEver()
+    }
     in 5..20 -> print("between 5 and 20")
     0, 3, 50 -> print("is 0.. or 30.. or 50")
     in 70..120 -> print("much bigger")
   }
+}
+
+fun doWhatEver() {
+
 }
