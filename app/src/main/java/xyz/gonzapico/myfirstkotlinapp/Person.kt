@@ -3,23 +3,17 @@ package xyz.gonzapico.myfirstkotlinapp
 /**
  * Created by gfernandez on 22/04/17.
  */
-class Person(name: String, age: Int){
-  // To change functionality in getter and/or setter
+interface Person {
+  val name: String
+  val age: Int
 
-  var name = name
-    get() = "Name -> $field"
-    set(value){
-      if (value.isNotEmpty()){
-        field = value
-      }
-    }
-  var age = age
-
-
+  fun getDescription() = "Name: $name, age: $age"
 }
 
-fun testClass(){
-  val person = Person("Anto", 33)
-  val name = person.name
-  person.name = "Miguel"
+class Developer(override val name: String, override val age: Int)
+  : Person
+
+fun testClass() {
+  val dev = Developer("Anto", 32)
+  dev.getDescription()
 }
