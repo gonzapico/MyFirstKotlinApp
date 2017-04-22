@@ -76,3 +76,20 @@ fun testFor(view: View) {
    */
 
 }
+
+fun testNull(view: View) {
+  val mediaItem: MediaItem? = null
+  // if mediaItem is not null it calls to title
+  // if (mediaItem != null) mediaItem.title
+  mediaItem?.title
+
+  val mediaItemNotNull: MediaItem = mediaItem ?:
+      MediaItem("Title Not Null", "ey", MediaItem.TYPE.PHOTO)
+
+  // Very used
+  val title: String = mediaItem?.title ?: "Alternative value"
+
+  // Recommedation: no use
+  // !! = 100% secure is not null
+  var titleNotNull = mediaItem!!.title
+}
