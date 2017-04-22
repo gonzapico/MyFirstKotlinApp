@@ -2,7 +2,9 @@ package xyz.gonzapico.myfirstkotlinapp
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.TextView
+import android.view.View
+import android.view.ViewGroup
+import android.widget.FrameLayout
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -21,12 +23,8 @@ class HomeActivity : AppCompatActivity() {
       showToast(it.title)
     }
 
-    val textView = TextView(this).withTwo {
-      // this = TextView
-      textSize = 20f
-    }
-
-    val textViewWith = withTwo(TextView(this))
+    val viewGroup: ViewGroup = FrameLayout(this)
+    val list: List<View> = viewGroup.filterViews { view -> view.visible }
   }
 
 }
@@ -42,4 +40,16 @@ fun <T : Any> T.applyTwo(f: T.() -> Unit): T {
 fun <T : Any> T.withTwo(obj: T, f: T.() -> Unit): T {
   obj.f()
   return obj
+}
+
+fun ViewGroup.filterViews(condition: (View) -> Boolean): List<View> {
+  // Default list are inmutable
+  // Inmutable list empty just created
+  val list = mutableListOf<View>()
+  for (i in 0 until childCount) {
+    val view = getChildAt(i)
+    if (condition(view)) {
+      list.add(view)
+    }
+  }
 }
