@@ -8,12 +8,17 @@ open class Person(val name: String, val age: Int)
 class Developer(name: String) : Person(name, 24)
 
 // Without constructor
-class MyDeveloper(val name: String) {
+class MyDeveloper(val name: String = "", val age: Int = 20) {
 
-  var age: Int = 20
+}
 
-  constructor(age: Int) : this("") {
-    this.age = age
-  }
-
+fun testClass(){
+  val myDev = MyDeveloper()
+  // name = "", age = 20
+  val myDevTwo  = MyDeveloper("U")
+  // name = "U", age = 20
+  val myDevThree = MyDeveloper("U", 25)
+  // name = "U", age = 25
+  val myDevFour = MyDeveloper(age = 36)
+  // name = "", age = 36
 }
