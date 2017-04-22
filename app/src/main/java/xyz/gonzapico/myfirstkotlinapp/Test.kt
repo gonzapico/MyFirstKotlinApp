@@ -49,3 +49,7 @@ fun testWhen(view: View) {
 fun doWhatEver() {
 
 }
+
+fun testIf(view: View) {
+  val int = if (view is TextView) 0 else 1
+}
