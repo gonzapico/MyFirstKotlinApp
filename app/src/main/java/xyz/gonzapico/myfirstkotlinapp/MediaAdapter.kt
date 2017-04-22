@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import org.w3c.dom.Text
 
 /**
  * Created by gfernandez on 22/04/17.
@@ -25,8 +26,8 @@ class MediaAdapter(
       mediaItemList.size
 
   class MediaViewHolder(mediaView: View) : RecyclerView.ViewHolder(mediaView) {
-    val title = mediaView.findViewById(R.id.media_title) as TextView
-    val thumb = mediaView.findViewById(R.id.media_thumb) as ImageView
+    val title = find<TextView>(R.id.media_title)
+    val thumb = find<ImageView>(R.id.media_thumb)
 
     fun bind(item: MediaItem) {
       title.text = item.title
