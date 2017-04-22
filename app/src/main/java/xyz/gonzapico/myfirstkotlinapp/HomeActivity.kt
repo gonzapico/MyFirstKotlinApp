@@ -19,7 +19,10 @@ class HomeActivity : AppCompatActivity() {
     showToastMessage(tvWelcomeMessage.text.toString())
   }
 
-  fun showToastMessage(message : String){
-    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-  }
+  // Normal use
+//  fun showToastMessage(message : String) = Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+
+  // Assigning value directly
+  fun showToastMessage(message: String) = Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+  // Assign to the function the response (it doesn't exists void, you can use Unit instead)
 }
