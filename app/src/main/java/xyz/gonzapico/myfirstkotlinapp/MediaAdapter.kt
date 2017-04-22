@@ -27,11 +27,12 @@ class MediaAdapter(
   class MediaViewHolder(mediaView: View) : RecyclerView.ViewHolder(mediaView) {
 
     fun bind(item: MediaItem) {
-      itemView.mediaTitle.text = item.title
-      itemView.media_thumb.loadUrl(item.thumbUrl)
-      itemView.media_video_indicator.visible = item.type == MediaItem.TYPE.VIDEO
-//      indicator.visibility = if (item.type == MediaItem.TYPE.VIDEO) View.VISIBLE else View.GONE
-      itemView.setOnClickListener { showToast(item.title, Toast.LENGTH_LONG) }
+      with(itemView) {
+        mediaTitle.text = item.title
+        media_thumb.loadUrl(item.thumbUrl)
+        media_video_indicator.visible = item.type == MediaItem.TYPE.VIDEO
+        setOnClickListener { showToast(item.title, Toast.LENGTH_LONG) }
+      }
     }
   }
 }
