@@ -15,3 +15,12 @@ fun fetchMedia(): List<MediaItem> = listOf(
     MediaItem("Nine", "http://lorempixel.com/400/400/sports/9/", MediaItem.TYPE.PHOTO),
     MediaItem("Ten", "http://lorempixel.com/400/400/sports/10/", MediaItem.TYPE.VIDEO)
 )
+
+fun testCollection() {
+  val list = listOf<Int>(1, 4, 3, 2)
+  val newList = list.filter { it % 2 == 0 }.sortedBy(Int::toString).map { "Title $it" }
+  (0..10) // Collection of integers
+  (0..10).filter { it % 2 == 0 }
+  (10..0)
+  (0 until 10 step 2)
+}
