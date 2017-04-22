@@ -35,14 +35,8 @@ inline fun <reified T : Activity> Context.startActivity() {
   startActivity(Intent(this, T::class.java))
 }
 
-inline fun <reified V : View> View.find(@IdRes resId: Int): V {
-  return findViewById(resId) as V
-}
+inline fun <reified V : View> View.find(@IdRes resId: Int): V = findViewById(resId) as V
 
-inline fun <reified V : View> Activity.find(@IdRes resId: Int): V {
-  return findViewById(resId) as V
-}
+inline fun <reified V : View> Activity.find(@IdRes resId: Int): V = findViewById(resId) as V
 
-inline fun <reified V : View> RecyclerView.ViewHolder.find(@IdRes resId: Int): V {
-  return itemView.find<V>(resId)
-}
+inline fun <reified V : View> RecyclerView.ViewHolder.find(@IdRes resId: Int): V = itemView.find<V>(resId)
