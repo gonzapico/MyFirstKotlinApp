@@ -21,9 +21,6 @@ class MediaAdapter(
 
   override fun onBindViewHolder(holder: MediaViewHolder, position: Int) {
     holder.bind(mediaItemList[position])
-    holder.itemView.setOnClickListener {
-      holder.itemView.context.showToast(mediaItemList[position].title)
-    }
   }
 
   override fun getItemCount() =
@@ -36,6 +33,7 @@ class MediaAdapter(
     fun bind(item: MediaItem) {
       title.text = item.title
       Picasso.with(thumb.context).load(item.thumbUrl).into(thumb)
+      itemView.setOnClickListener { showToast(title.text.toString()) }
     }
   }
 }
