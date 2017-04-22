@@ -2,9 +2,7 @@ package xyz.gonzapico.myfirstkotlinapp
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.support.v7.widget.RecyclerView
 
 class HomeActivity : AppCompatActivity() {
 
@@ -13,12 +11,8 @@ class HomeActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_home)
 
-    val btnShowMessage = findViewById(R.id.btnShowMessage) as Button
-    val etMessage = findViewById(R.id.etMessage) as EditText
-
-    btnShowMessage.setOnClickListener { showToastMessage("Hello ${etMessage.text}") }
-
+    val recyclerView = findViewById(R.id.recycler) as RecyclerView
+    recyclerView.adapter = MediaAdapter(fetchMedia())
   }
 
-  fun showToastMessage(message: String) = Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 }
