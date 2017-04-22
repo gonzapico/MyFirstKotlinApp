@@ -52,4 +52,5 @@ fun ViewGroup.filterViews(condition: (View) -> Boolean): List<View> {
       list.add(view)
     }
   }
+  return list
 }
