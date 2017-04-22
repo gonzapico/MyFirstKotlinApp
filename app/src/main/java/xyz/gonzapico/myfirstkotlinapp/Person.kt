@@ -5,14 +5,9 @@ package xyz.gonzapico.myfirstkotlinapp
  */
 open class Person(name:String, age:Int){
   // Properties
-  val name : String
-  val age : Int
+  val name : String = name
+  val age : Int = age
 
-  // Executing when creating the class
-  init {
-    this.name = name
-    this.age = age
-  }
 }
 
 class Developer(name: String) : Person(name, 24)
