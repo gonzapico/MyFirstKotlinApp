@@ -29,6 +29,19 @@ fun ViewGroup.inflate(@LayoutRes layoutToInflate: Int,
 fun ImageView.loadUrl(urlToLoad: String) = Picasso.with(context).load(urlToLoad).into(this)
 
 /***
+ * Two ways to set the visibility
+ */
+fun View.visible(visible: Boolean) {
+  visibility = if (visible) View.VISIBLE else View.GONE
+}
+
+var View.visible: Boolean
+  get() = visibility == View.VISIBLE
+  set(value) {
+    visibility = if (value) View.VISIBLE else View.GONE
+  }
+
+/***
  * To what activity we want to navigate
  */
 inline fun <reified T : Activity> Context.startActivity() {
@@ -39,4 +52,5 @@ inline fun <reified V : View> View.find(@IdRes resId: Int): V = findViewById(res
 
 inline fun <reified V : View> Activity.find(@IdRes resId: Int): V = findViewById(resId) as V
 
-inline fun <reified V : View> RecyclerView.ViewHolder.find(@IdRes resId: Int): V = itemView.find<V>(resId)
+inline fun <reified V : View> RecyclerView.ViewHolder.find(@IdRes resId: Int): V = itemView.find<V>(
+    resId)
