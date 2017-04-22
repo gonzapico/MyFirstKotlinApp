@@ -20,6 +20,14 @@ fun testWhen(view: View) {
   }
 
   val int = 10
+  // Any = Object in Java
+  val result: Any = when (int) {
+    in 1..2 -> "1"
+    0, 3, 50 -> 2
+    else -> throw IllegalStateException("Invalid value")
+  }
+  // else required with Any
+
   when (int) {
     in 1..2 -> {
       doWhatEver()
