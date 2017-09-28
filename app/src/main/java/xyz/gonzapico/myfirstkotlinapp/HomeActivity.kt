@@ -50,6 +50,7 @@ class HomeActivity : AppCompatActivity() {
         is Filter.ByType -> items.filter { it.type == filter.type }
         is Filter.None -> items
       }
+      progress.visible = false
     }
 
     return true
